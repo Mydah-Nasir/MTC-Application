@@ -264,5 +264,6 @@ Ensure all handwritten numbers are transcribed accurately and maintain a clean, 
                 )
 
         except Exception as e:
+            print(f"Error: {e}")
             st.error(f"An error occurred: {e}")
 
