@@ -191,7 +191,7 @@ uploaded_file = st.file_uploader("Upload Observation Sheet Image", type=["png", 
 
 if uploaded_file:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Observation Sheet", use_column_width=True)
+    st.image(image, caption="Uploaded Observation Sheet", use_container_width=True)
 
     # Convert PIL image to bytes
     buffered = io.BytesIO()
