@@ -82,8 +82,8 @@ def parse_markdown_output(md_text: str):
                 continue  # skip malformed rows safely
 
             rows.append({
-                "sample_id": cols[1],
-                "heat_no": cols[2],
+                "sample_id": cols[2],
+                "heat_no": cols[1],
                 "base": [int(x.strip()) for x in cols[3].split(",") if x.strip().isdigit()],
                 "haz": [int(x.strip()) for x in cols[4].split(",") if x.strip().isdigit()],
                 "weld": [int(x.strip()) for x in cols[5].split(",") if x.strip().isdigit()],
