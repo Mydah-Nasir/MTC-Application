@@ -210,7 +210,7 @@ Please organize the output into the following three sections:
    Extract the block ID, standard value, the five individual readings, the average, the % error, and the remark.
 
 3. Extracted Hardness Values Table:
-   Create a table containing Sr. No., Sample ID No., and Heat No.
+   Create a table containing Sr. No., Sample ID No. (Pipe No,), and Heat No.
    For the 33 hardness measurement columns, group them into three sub-columns as labeled in the image: 
    Base (Points 1-6), HAZ (Points 7-24), and Weld (Points 25-33). 
    List the numbers for each row separated by commas within those groups. Include the 'Remarks' column at the end.
