@@ -14,6 +14,19 @@ import os
 import zipfile
 import shutil
 
+def set_cell_value_safe(ws, cell_ref, value):
+    cell = ws[cell_ref]
+    
+    # If it's a merged cell, find the top-left cell
+    for merged_range in ws.merged_cells.ranges:
+        if cell.coordinate in merged_range:
+            top_left = ws.cell(merged_range.min_row, merged_range.min_col)
+            top_left.value = value
+            return
+    
+    # Normal cell
+    cell.value = value
+
 
 def extract_bold_key_value(line: str):
     match = re.search(r"\*\*(.+?)\*\*:\s*(.+)", line)
@@ -84,7 +97,7 @@ def populate_excel_from_markdown(md_text, template_path, output_path):
     }
     for k, cell in summary_map.items():
         if k in summary:
-            ws[cell] = summary[k]
+           set_cell_value_safe(ws, cell, summary[k])
 
     std_map = {
         "Standard Block ID No.": "E5", "Standard Block Value": "E6", "Reading 1": "E7",
@@ -93,8 +106,8 @@ def populate_excel_from_markdown(md_text, template_path, output_path):
     }
     for k, cell in std_map.items():
         if k in standard:
-            ws[cell] = standard[k]
-
+            set_cell_value_safe(ws, cell, standard[k])
+            
     START_ROW = 17
     COL_SRNO, COL_HEAT, COL_SAMPLE = 1, 2, 3
     COL_BASE, COL_HAZ, COL_WELD, COL_REMARK = 4, 10, 28, 37
