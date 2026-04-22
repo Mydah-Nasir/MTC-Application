@@ -14,9 +14,6 @@ import os
 import zipfile
 import shutil
 
-# -------------------------
-# Streamlit App
-# -------------------------
 
 def extract_bold_key_value(line: str):
     match = re.search(r"\*\*(.+?)\*\*:\s*(.+)", line)
