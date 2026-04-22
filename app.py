@@ -13,7 +13,7 @@ import tempfile
 import os
 import zipfile
 import shutil
-
+#new functions for validation report generation
 def set_cell_value_safe(ws, cell_ref, value):
     cell = ws[cell_ref]
     
@@ -107,7 +107,7 @@ def populate_excel_from_markdown(md_text, template_path, output_path):
     for k, cell in std_map.items():
         if k in standard:
             set_cell_value_safe(ws, cell, standard[k])
-            
+
     START_ROW = 17
     COL_SRNO, COL_HEAT, COL_SAMPLE = 1, 2, 3
     COL_BASE, COL_HAZ, COL_WELD, COL_REMARK = 4, 10, 28, 37
