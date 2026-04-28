@@ -261,9 +261,17 @@ if 'validation_excel_ready' not in st.session_state:
 # Streamlit UI
 # -------------------------
 st.set_page_config(page_title="Vickers Hardness Sheet Extractor & Validator", layout="wide")
+
+# Display logos at the top
+col1, col_spacer, col2 = st.columns([1, 2, 1])
+
+with col1:
+    st.image("east pipes.png", width=150)
+
 st.title("Vickers Hardness Observation Sheet Extractor & Validator")
 
 # Sidebar for validation option
+st.sidebar.image("OfficeFlow Ai-01-01.png")
 st.sidebar.header("Validation Options")
 enable_validation = st.sidebar.checkbox("Enable Master - Observation Validation", value=False)
 
